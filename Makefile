@@ -98,7 +98,9 @@ endif
 ifneq ($(shell pkg-config --exists gbm && echo 1),1)
 $(error ERROR: Missing openglosd dependency: gbm)
 endif
-LIBS += -l/home/dni/build-enviroment/builds/openatv/release/u41/libEGL.so -l/home/dni/build-enviroment/builds/openatv/release/u41/libGLESv2.so -l/home/dni/build-enviroment/builds/openatv/release/u41/libgbm.so
+_CFLAGS += $(shell pkg-config --cflags gbm glesv2 egl)
+LIBS += $(shell pkg-config --libs gbm glesv2 egl)
+LIBS += -L/home/dni/build-enviroment/builds/openatv/release/u41/
 ifneq ($(shell pkg-config --exists freetype2 && echo 1),1)
 $(error ERROR: Missing openglosd dependency: freetype2)
 endif
