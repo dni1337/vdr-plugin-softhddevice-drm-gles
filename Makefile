@@ -98,6 +98,8 @@ endif
 ifneq ($(shell pkg-config --exists gbm && echo 1),1)
 $(error ERROR: Missing openglosd dependency: gbm)
 endif
+_CFLAGS += $(shell pkg-config --cflags mesa)
+LIBS += $(shell pkg-config --libs mesa)
 ifneq ($(shell pkg-config --exists freetype2 && echo 1),1)
 $(error ERROR: Missing openglosd dependency: freetype2)
 endif
