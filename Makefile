@@ -100,6 +100,7 @@ $(error ERROR: Missing openglosd dependency: gbm)
 endif
 _CFLAGS += $(shell pkg-config --cflags gbm glesv2 egl)
 LIBS += $(shell pkg-config --libs gbm glesv2 egl)
+LIBS += $(shell pkg-config --libs libavformat libavcodec libavdevice libavfilter libavutil libswscale libswresample) 
 LIBS += -L/home/dni/build-enviroment/builds/openatv/release/u41/
 ifneq ($(shell pkg-config --exists freetype2 && echo 1),1)
 $(error ERROR: Missing openglosd dependency: freetype2)
