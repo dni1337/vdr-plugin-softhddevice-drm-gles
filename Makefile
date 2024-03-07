@@ -101,9 +101,6 @@ endif
 ifneq ($(shell pkg-config --exists freetype2 && echo 1),1)
 $(error ERROR: Missing openglosd dependency: freetype2)
 endif
-ifneq ($(shell pkg-config --exists glm && echo 1),1)
-$(error ERROR: Missing openglosd dependency: glm)
-endif
 _CFLAGS += $(shell pkg-config --cflags gbm glesv2 egl)
 LIBS += $(shell pkg-config --libs gbm glesv2 egl)
 _CFLAGS += $(shell pkg-config --cflags freetype2)
